@@ -12,7 +12,7 @@ from linebot.exceptions import (
 )
 from linebot.models import (
 	MessageEvent, TextMessage, TextSendMessage, ImageSendMessage,
-	SourceGroup, SourceRoom, LeaveEvent 
+	SourceGroup, SourceRoom
 )
 
 app = Flask(__name__)
@@ -20,6 +20,7 @@ app = Flask(__name__)
 MendoBot = LineBotApi('CQcg1+DqDmLr8bouXAsuoSm5vuwB2DzDXpWc/KGUlxzhq9MSWbk9gRFbanmFTbv9wwW8psPOrrg+mHtOkp1l+CTlqVeoUWwWfo54lNh16CcqH7wmQQHT+KnkNataGXez6nNY8YlahgO7piAAKqfjLgdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('c116ac1004040f97a62aa9c3503d52d9')
 
+@app.route("/callback", methods=['POST'])
 def callback():
 	# get X-Line-Signature header value
 	signature = request.headers['X-Line-Signature']
